@@ -1,0 +1,49 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Image/background .png</file>
+        <file>Image/Bevone.png</file>
+        <file>Image/clock.png</file>
+        <file>Image/reset.png</file>
+        <file>Image/speaker.png</file>
+        <file>Image/errorInfo.png</file>
+        <file>Image/alarmInfo.png</file>
+        <file>Image/tailPage.png</file>
+        <file>Image/headPage.png</file>
+        <file>Image/arrow-up.png</file>
+        <file>Image/arrow-down.png</file>
+        <file>Image/back.png</file>
+        <file>Image/connect.png</file>
+        <file>Image/key.png</file>
+        <file>Image/tools.png</file>
+        <file>Image/volume.png</file>
+        <file>Image/selfCheck.png</file>
+        <file>Image/focus.png</file>
+        <file>Image/green.png</file>
+        <file>Image/red.png</file>
+        <file>Image/yellow.png</file>
+        <file>Image/ok.png</file>
+        <file>Image/start.png</file>
+        <file>Image/stop.png</file>
+        <file>Image/checked.png</file>
+        <file>Image/uncheck.png</file>
+        <file>Image/print.png</file>
+        <file>Image/search.png</file>
+        <file>Image/datafilter.png</file>
+        <file>Image/user.png</file>
+        <file>Image/run.png</file>
+        <file>Image/time.png</file>
+        <file>Image/pwd.png</file>
+        <file>Image/node.png</file>
+        <file>Image/dataDel.png</file>
+        <file>Image/dataExport.png</file>
+        <file>Image/dataRubish.png</file>
+        <file>Image/dataSearch.png</file>
+        <file>Image/unchecked.png</file>
+        <file>Image/checked_r.png</file>
+        <file>Image/saveConf.png</file>
+        <file>sound/alarm.wav</file>
+        <file>sound/error.wav</file>
+        <file>sound/pegconn.wav</file>
+        <file>Image/Sensor.png</file>
+    </qresource>
+</RCC>

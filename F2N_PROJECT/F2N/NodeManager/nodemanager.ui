@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>NodeManager</class>
+ <widget class="QWidget" name="NodeManager">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>703</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#NodeManager{
+color: rgb(255, 255, 255);
+background-color: rgb(15, 41, 68);
+}
+QTableWidget#tableWgt{
+gridline-color: rgb(255, 255, 255);
+background-color: rgb(15, 41, 68);
+}
+QTableWidget#tableWgt_2{
+gridline-color: rgb(255, 255, 255);
+background-color: rgb(15, 41, 68);
+}
+QScrollBar:vertical
+{
+width:30px;
+}
+QComboBox{
+font: 12pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);
+background-color: rgb(15, 41, 68);
+}
+QComboBox QAbstractItemView
+{
+color: rgb(0, 185, 185);
+border: 1px solid rgb(161,161,161);
+}
+QComboBox QAbstractItemView::item{
+color: rgb(0, 185, 185);
+height: 25px;
+}
+QComboBox QAbstractItemView::item:selected
+{	
+color: rgb(0, 185, 185);
+background-color: rgba(54, 98, 180);
+}
+
+QToolButton{
+font: 18pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);
+border:2px solid rgb(28, 183, 200);
+border-radius:10px;
+background-color: rgb(15, 41, 68);
+}
+QToolButton:disabled{
+font: 18pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);
+border-color: rgb(255, 255, 255);
+}
+QToolButton:hover{
+font: 17pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 0, 0);
+color: rgb(0, 185, 185);
+/*background-color: rgb(3, 127, 119);*/
+}
+QLabel{
+font: 16pt &quot;文泉驿等宽微米黑&quot;;
+font: 16pt &quot;Noto Sans [monotype]&quot;;
+color: rgb(80, 175, 185);
+}
+QCheckBox{
+font: 12pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);
+}
+QCheckBox::indicator{
+margin-left:5px;
+width:15px;
+height:15px;
+}
+QCheckBox::indicator:uncheck{
+	border-image: url(:/Image/uncheck.png);
+}  
+QCheckBox::indicator:checked {
+      border-image: url(:/Image/checked.png);
+}
+</string>
+  </property>
+  <widget class="QLabel" name="lbTitle">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1024</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 16pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);
+background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(28, 183, 200, 255), stop:1 rgba(0, 85, 127, 255));</string>
+   </property>
+   <property name="text">
+    <string>节点管理</string>
+   </property>
+  </widget>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>30</y>
+     <width>1024</width>
+     <height>676</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QTabWidget::pane{
+border-width: 0px;
+border-color:white;
+border-style:outset;
+border-radius: 20px;
+background-color: rgb(85, 255, 255);
+background-color: rgb(15, 41, 68);
+/*background: transparent;*/
+}​
+QTabWidget::tab-bar{
+	left:0px;    
+}
+QTabBar::tab{
+color: rgb(255, 255, 255);
+width: 509px;
+height:40px;
+font:20px;
+border:1px solid rgb(28, 183, 200);
+}
+QTabBar::tab:selected{
+margin-left: 1;  
+margin-right: 0;
+color: rgb(0, 185, 185);
+}
+/*
+QTabBar::tab:!selected{
+margin-left: 1;
+margin-right: 0;
+}
+QTabBar::tab:hover:!selected{
+margin-left: 1;
+margin-right: 0;
+}
+QTabBar::tab:!selected{
+margin-top: 6px; 
+margin-bottom: -6px; 
+}​
+*/</string>
+   </property>
+   <property name="currentIndex">
+    <number>-1</number>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="tBtnBack">
+   <property name="geometry">
+    <rect>
+     <x>830</x>
+     <y>635</y>
+     <width>145</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>退出返回</string>
+   </property>
+   <property name="icon">
+    <iconset resource="../image.qrc">
+     <normaloff>:/Image/back.png</normaloff>:/Image/back.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>30</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextBesideIcon</enum>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="tBtnEffect">
+   <property name="geometry">
+    <rect>
+     <x>830</x>
+     <y>570</y>
+     <width>145</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>操作生效</string>
+   </property>
+   <property name="icon">
+    <iconset resource="../image.qrc">
+     <normaloff>:/Image/volume.png</normaloff>:/Image/volume.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>30</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextBesideIcon</enum>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../image.qrc"/>
+ </resources>
+ <connections/>
+</ui>

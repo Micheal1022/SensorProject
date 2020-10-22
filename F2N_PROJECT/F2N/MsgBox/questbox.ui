@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QuestBox</class>
+ <widget class="QDialog" name="QuestBox">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>240</width>
+    <height>160</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>文泉驿等宽微米黑</family>
+    <pointsize>12</pointsize>
+    <weight>50</weight>
+    <italic>false</italic>
+    <bold>false</bold>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog{
+color: rgb(255, 255, 255);
+background-color: rgb(15, 41, 68);
+border:1px solid rgb(28, 183, 200);
+border-radius:5px;
+}
+QToolButton{
+font: 18pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);
+border:2px solid rgb(28, 183, 200);
+border-radius:10px;
+background-color: rgb(15, 41, 68);
+}
+QToolButton:disabled{
+font: 18pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);
+border-color: rgb(255, 255, 255);
+}
+QToolButton:hover{
+font: 17pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 0, 0);
+color: rgb(0, 185, 185);
+/*background-color: rgb(3, 127, 119);*/
+}
+QDialog{
+background-color: rgb(15, 41, 68);
+}
+QPushButton{
+width:50px;
+height:35px;
+font: 14pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);
+border:2px solid rgb(28, 183, 200);
+border-radius:10px;
+background-color: rgb(15, 41, 68);
+}
+QLabel{
+font: 14pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);
+}</string>
+  </property>
+  <widget class="QToolButton" name="pBtn_ok">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>115</y>
+     <width>80</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>确定</string>
+   </property>
+   <property name="icon">
+    <iconset resource="../image.qrc">
+     <normaloff>:/Image/checked.png</normaloff>:/Image/checked.png</iconset>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextBesideIcon</enum>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="pBtn_cancel">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>115</y>
+     <width>80</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>取消</string>
+   </property>
+   <property name="icon">
+    <iconset resource="../image.qrc">
+     <normaloff>:/Image/uncheck.png</normaloff>:/Image/uncheck.png</iconset>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextBesideIcon</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lb_title">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>5</y>
+     <width>100</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lb_context">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>55</y>
+     <width>220</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>14</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>35</y>
+     <width>240</width>
+     <height>3</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(28, 183, 200);</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../image.qrc"/>
+ </resources>
+ <connections/>
+</ui>

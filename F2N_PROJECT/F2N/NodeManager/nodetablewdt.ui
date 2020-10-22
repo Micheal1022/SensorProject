@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>NodeTableWgt</class>
+ <widget class="QWidget" name="NodeTableWgt">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>636</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#NodeTableWgt{
+color: rgb(255, 255, 255);
+background-color: rgb(15, 41, 68);
+}
+QTableWidget#tableWgt{
+gridline-color: rgb(255, 255, 255);
+background-color: rgb(15, 41, 68);
+border:2px solid rgb(28, 183, 200);
+border-radius:5px;
+}
+QScrollBar:vertical
+{
+width:30px;
+}
+QLineEdit{
+font: 18pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(0, 0, 0);
+border-radius:5px;
+border:1px solid rgb(79, 229, 219);
+}
+QToolButton{
+font: 18pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);
+border:2px solid rgb(28, 183, 200);
+border-radius:10px;
+background-color: rgb(15, 41, 68);
+}
+QToolButton:disabled{
+font: 18pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);
+border-color: rgb(255, 255, 255);
+}
+QToolButton:hover{
+font: 16pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(0, 185, 185);
+/*background-color: rgb(3, 127, 119);*/
+}
+QLabel{
+font: 16pt &quot;文泉驿等宽微米黑&quot;;
+font: 16pt &quot;Noto Sans [monotype]&quot;;
+color: rgb(80, 175, 185);
+}</string>
+  </property>
+  <widget class="QTableWidget" name="tableWgt">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>780</width>
+     <height>635</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(15, 41, 68);</string>
+   </property>
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOn</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>820</x>
+     <y>15</y>
+     <width>50</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>总数:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbNodeCount">
+   <property name="geometry">
+    <rect>
+     <x>880</x>
+     <y>15</y>
+     <width>80</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>500</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="tBtnSave">
+   <property name="geometry">
+    <rect>
+     <x>830</x>
+     <y>430</y>
+     <width>145</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>数据保存</string>
+   </property>
+   <property name="icon">
+    <iconset resource="../image.qrc">
+     <normaloff>:/Image/saveConf.png</normaloff>:/Image/saveConf.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>30</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextBesideIcon</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>820</x>
+     <y>65</y>
+     <width>50</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>序号:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditNumber">
+   <property name="geometry">
+    <rect>
+     <x>875</x>
+     <y>65</y>
+     <width>110</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxLength">
+    <number>4</number>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+   <property name="clearButtonEnabled">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>820</x>
+     <y>115</y>
+     <width>50</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>变比:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditRatio">
+   <property name="geometry">
+    <rect>
+     <x>875</x>
+     <y>115</y>
+     <width>110</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxLength">
+    <number>4</number>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+   <property name="clearButtonEnabled">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="tBtnOk">
+   <property name="geometry">
+    <rect>
+     <x>880</x>
+     <y>330</y>
+     <width>105</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>确定</string>
+   </property>
+   <property name="icon">
+    <iconset resource="../image.qrc">
+     <normaloff>:/Image/ok.png</normaloff>:/Image/ok.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>30</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextBesideIcon</enum>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="tBtn_1">
+   <property name="geometry">
+    <rect>
+     <x>820</x>
+     <y>165</y>
+     <width>45</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>28</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 28pt &quot;文泉驿等宽微米黑&quot;;</string>
+   </property>
+   <property name="text">
+    <string>1</string>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="tBtn_9">
+   <property name="geometry">
+    <rect>
+     <x>940</x>
+     <y>275</y>
+     <width>45</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>28</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 28pt &quot;文泉驿等宽微米黑&quot;;</string>
+   </property>
+   <property name="text">
+    <string>9</string>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="tBtn_2">
+   <property name="geometry">
+    <rect>
+     <x>880</x>
+     <y>165</y>
+     <width>45</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>28</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 28pt &quot;文泉驿等宽微米黑&quot;;</string>
+   </property>
+   <property name="text">
+    <string>2</string>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="tBtn_8">
+   <property name="geometry">
+    <rect>
+     <x>880</x>
+     <y>275</y>
+     <width>45</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>28</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 28pt &quot;文泉驿等宽微米黑&quot;;</string>
+   </property>
+   <property name="text">
+    <string>8</string>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="tBtn_6">
+   <property name="geometry">
+    <rect>
+     <x>940</x>
+     <y>220</y>
+     <width>45</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>28</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 28pt &quot;文泉驿等宽微米黑&quot;;</string>
+   </property>
+   <property name="text">
+    <string>6</string>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="tBtn_5">
+   <property name="geometry">
+    <rect>
+     <x>880</x>
+     <y>220</y>
+     <width>45</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>28</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 28pt &quot;文泉驿等宽微米黑&quot;;</string>
+   </property>
+   <property name="text">
+    <string>5</string>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="tBtn_3">
+   <property name="geometry">
+    <rect>
+     <x>940</x>
+     <y>165</y>
+     <width>45</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>28</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 28pt &quot;文泉驿等宽微米黑&quot;;</string>
+   </property>
+   <property name="text">
+    <string>3</string>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="tBtn_7">
+   <property name="geometry">
+    <rect>
+     <x>820</x>
+     <y>275</y>
+     <width>45</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>28</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 28pt &quot;文泉驿等宽微米黑&quot;;</string>
+   </property>
+   <property name="text">
+    <string>7</string>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="tBtn_0">
+   <property name="geometry">
+    <rect>
+     <x>820</x>
+     <y>330</y>
+     <width>45</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>28</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 28pt &quot;文泉驿等宽微米黑&quot;;</string>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="tBtn_4">
+   <property name="geometry">
+    <rect>
+     <x>820</x>
+     <y>220</y>
+     <width>45</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>28</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 28pt &quot;文泉驿等宽微米黑&quot;;</string>
+   </property>
+   <property name="text">
+    <string>4</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>880</x>
+     <y>15</y>
+     <width>100</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>个</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <zorder>label_7</zorder>
+  <zorder>tableWgt</zorder>
+  <zorder>label_3</zorder>
+  <zorder>lbNodeCount</zorder>
+  <zorder>tBtnSave</zorder>
+  <zorder>label_5</zorder>
+  <zorder>lineEditNumber</zorder>
+  <zorder>label_6</zorder>
+  <zorder>lineEditRatio</zorder>
+  <zorder>tBtnOk</zorder>
+  <zorder>tBtn_1</zorder>
+  <zorder>tBtn_9</zorder>
+  <zorder>tBtn_2</zorder>
+  <zorder>tBtn_8</zorder>
+  <zorder>tBtn_6</zorder>
+  <zorder>tBtn_5</zorder>
+  <zorder>tBtn_3</zorder>
+  <zorder>tBtn_7</zorder>
+  <zorder>tBtn_0</zorder>
+  <zorder>tBtn_4</zorder>
+ </widget>
+ <resources>
+  <include location="../image.qrc"/>
+ </resources>
+ <connections/>
+</ui>

@@ -1,0 +1,4641 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>NodeInfo</class>
+ <widget class="QWidget" name="NodeInfo">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>640</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#NodeInfo{
+color: rgb(255, 255, 255);
+background-color: rgb(15, 41, 68);
+}
+QLCDNumber{
+font: 14pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);
+border:1px solid white;
+border-color: rgb(79, 229, 219);
+border-radius:8px;
+}
+
+QToolButton{
+font: 18pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);
+border:2px solid rgb(28, 183, 200);
+border-radius:10px;
+background-color: rgb(43, 79, 102);
+background-color: rgb(15, 41, 68);
+}
+QToolButton:disabled{
+font: 18pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);
+border-color: rgb(255, 255, 255);
+}
+QToolButton:hover{
+font: 16pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 0, 0);
+color: rgb(0, 185, 185);
+/*background-color: rgb(3, 127, 119);*/
+}
+QLabel{
+font: 16pt &quot;文泉驿等宽微米黑&quot;;
+font: 16pt &quot;Noto Sans [monotype]&quot;;
+color: rgb(80, 175, 185);
+}
+QLabel#lbArea{
+font: 12pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);
+border:2px solid white;
+border-color: rgb(79, 229, 219);
+border-radius:8px;
+}
+</string>
+  </property>
+  <widget class="QLabel" name="lbCurCanId">
+   <property name="geometry">
+    <rect>
+     <x>275</x>
+     <y>145</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>15</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::TabFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 15pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="tBtnTailPage">
+   <property name="geometry">
+    <rect>
+     <x>630</x>
+     <y>140</y>
+     <width>90</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>18</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="text">
+    <string>尾页</string>
+   </property>
+   <property name="icon">
+    <iconset resource="../image.qrc">
+     <normaloff>:/Image/tailPage.png</normaloff>:/Image/tailPage.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>23</width>
+     <height>23</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextBesideIcon</enum>
+   </property>
+  </widget>
+  <widget class="QFrame" name="nodeFrame">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>225</y>
+     <width>990</width>
+     <height>410</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:1px none;
+</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QPushButton" name="pBtn_10">
+    <property name="geometry">
+     <rect>
+      <x>595</x>
+      <y>20</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>10
+VA3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_38">
+    <property name="geometry">
+     <rect>
+      <x>465</x>
+      <y>150</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>38
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_4">
+    <property name="geometry">
+     <rect>
+      <x>205</x>
+      <y>20</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>4
+VA3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_9">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>20</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>9
+VA3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_1">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>1
+VA</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_55">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>215</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>46
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_15">
+    <property name="geometry">
+     <rect>
+      <x>920</x>
+      <y>20</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>15
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_41">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>150</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>41
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_30">
+    <property name="geometry">
+     <rect>
+      <x>920</x>
+      <y>85</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>30
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_45">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>855</x>
+      <y>150</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>44
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_49">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>215</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>48
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_21">
+    <property name="geometry">
+     <rect>
+      <x>335</x>
+      <y>85</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>21
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_14">
+    <property name="geometry">
+     <rect>
+      <x>855</x>
+      <y>20</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>14
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_46">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>920</x>
+      <y>150</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>45
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_47">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>215</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>46
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_53">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>215</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>50
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_25">
+    <property name="geometry">
+     <rect>
+      <x>595</x>
+      <y>85</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>25
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_31">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>150</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>31
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_36">
+    <property name="geometry">
+     <rect>
+      <x>335</x>
+      <y>150</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>36
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_5">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>20</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>5
+VA3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_7">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>20</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>7
+VA3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_23">
+    <property name="geometry">
+     <rect>
+      <x>465</x>
+      <y>85</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>23
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_50">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>855</x>
+      <y>215</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>47
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_19">
+    <property name="geometry">
+     <rect>
+      <x>205</x>
+      <y>85</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>19
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_18">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>85</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>18
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_32">
+    <property name="geometry">
+     <rect>
+      <x>75</x>
+      <y>150</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>32
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_33">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>150</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>33
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_13">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>20</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>13
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_52">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>595</x>
+      <y>215</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>43
+V3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_54">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>215</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>40
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_28">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>85</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>28
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_2">
+    <property name="geometry">
+     <rect>
+      <x>75</x>
+      <y>20</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(170, 0, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>2
+2VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_29">
+    <property name="geometry">
+     <rect>
+      <x>855</x>
+      <y>85</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>29
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_26">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>85</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>26
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_60">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>920</x>
+      <y>215</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>60
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_27">
+    <property name="geometry">
+     <rect>
+      <x>725</x>
+      <y>85</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>27
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_24">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>85</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>24
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_51">
+    <property name="geometry">
+     <rect>
+      <x>335</x>
+      <y>215</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>39
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_35">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>150</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>35
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_43">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>465</x>
+      <y>215</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>41
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_40">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>595</x>
+      <y>150</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>40
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_12">
+    <property name="geometry">
+     <rect>
+      <x>725</x>
+      <y>20</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>12
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_3">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>20</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(255, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>3
+VA3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_34">
+    <property name="geometry">
+     <rect>
+      <x>205</x>
+      <y>150</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>34
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_48">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>75</x>
+      <y>215</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>47
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_37">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>150</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>37
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_11">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>20</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>11
+VA3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_20">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>85</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>20
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_59">
+    <property name="geometry">
+     <rect>
+      <x>205</x>
+      <y>215</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>49
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_57">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>215</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>42
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_6">
+    <property name="geometry">
+     <rect>
+      <x>335</x>
+      <y>20</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>6
+VA3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_8">
+    <property name="geometry">
+     <rect>
+      <x>465</x>
+      <y>20</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);
+font: 12pt &quot;文泉驿等宽微米黑&quot;;</string>
+    </property>
+    <property name="text">
+     <string>8
+VA3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_39">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>150</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>39
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_44">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>150</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>43
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_17">
+    <property name="geometry">
+     <rect>
+      <x>75</x>
+      <y>85</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>17
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_16">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>85</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>16
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_22">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>85</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>22
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_56">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>725</x>
+      <y>215</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>45
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_42">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>725</x>
+      <y>150</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>42
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_58">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>215</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>44
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_61">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>280</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>61
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_62">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>725</x>
+      <y>280</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>72
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_63">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>280</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>69
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_64">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>345</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>88
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_65">
+    <property name="geometry">
+     <rect>
+      <x>205</x>
+      <y>345</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>79
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_66">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>345</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>86
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_67">
+    <property name="geometry">
+     <rect>
+      <x>75</x>
+      <y>280</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>62
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_68">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>280</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>67
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_69">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>280</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>73
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_70">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>345</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>84
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_71">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>75</x>
+      <y>345</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>77
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_72">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>280</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>71
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_73">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>345</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>82
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_74">
+    <property name="geometry">
+     <rect>
+      <x>335</x>
+      <y>280</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>66
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_75">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>465</x>
+      <y>345</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>83
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_76">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>280</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>63
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_77">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>920</x>
+      <y>345</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>90
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_78">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>345</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>78
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_79">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>725</x>
+      <y>345</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>87
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_80">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>855</x>
+      <y>280</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>74
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_81">
+    <property name="geometry">
+     <rect>
+      <x>465</x>
+      <y>280</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>68
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_82">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>595</x>
+      <y>280</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>70
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_83">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>595</x>
+      <y>345</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>85
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_84">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>280</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>65
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_85">
+    <property name="geometry">
+     <rect>
+      <x>205</x>
+      <y>280</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>64
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_86">
+    <property name="geometry">
+     <rect>
+      <x>335</x>
+      <y>345</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>81
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_87">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>345</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>80
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_88">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>345</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>76
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_89">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>855</x>
+      <y>345</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>89
+VAN3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_90">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>920</x>
+      <y>280</y>
+      <width>55</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>75
+VAN3</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QToolButton" name="tBtnNestPage">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>930</x>
+     <y>140</y>
+     <width>90</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>18</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="text">
+    <string>下页</string>
+   </property>
+   <property name="icon">
+    <iconset resource="../image.qrc">
+     <normaloff>:/Image/arrow-down.png</normaloff>:/Image/arrow-down.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>27</width>
+     <height>27</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextBesideIcon</enum>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="tBtnLastPage">
+   <property name="geometry">
+    <rect>
+     <x>830</x>
+     <y>140</y>
+     <width>90</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>18</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="text">
+    <string>上页</string>
+   </property>
+   <property name="icon">
+    <iconset resource="../image.qrc">
+     <normaloff>:/Image/arrow-up.png</normaloff>:/Image/arrow-up.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>27</width>
+     <height>27</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextBesideIcon</enum>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="tBtnPowerInfo">
+   <property name="geometry">
+    <rect>
+     <x>485</x>
+     <y>140</y>
+     <width>130</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QToolButton{
+font: 16pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);
+border:2px none rgb(28, 183, 200);
+border-radius:10px;
+background-color: rgb(43, 79, 102);
+background-color: rgb(15, 41, 68);
+}
+</string>
+   </property>
+   <property name="text">
+    <string>供电中断</string>
+   </property>
+   <property name="icon">
+    <iconset resource="../image.qrc">
+     <normaloff>:/Image/alarmInfo.png</normaloff>:/Image/alarmInfo.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>35</width>
+     <height>35</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextBesideIcon</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lb_Time_2">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>145</y>
+     <width>100</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>15</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::TabFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 15pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>巡检节点:</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="tBtnErrorInfo">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>140</y>
+     <width>130</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QToolButton{
+font: 16pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);
+border:2px none rgb(28, 183, 200);
+border-radius:10px;
+background-color: rgb(43, 79, 102);
+background-color: rgb(15, 41, 68);
+}
+</string>
+   </property>
+   <property name="text">
+    <string>故障信息</string>
+   </property>
+   <property name="icon">
+    <iconset resource="../image.qrc">
+     <normaloff>:/Image/errorInfo.png</normaloff>:/Image/errorInfo.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>35</width>
+     <height>35</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextBesideIcon</enum>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="tBtnHeadPage">
+   <property name="geometry">
+    <rect>
+     <x>730</x>
+     <y>140</y>
+     <width>90</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>18</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="text">
+    <string>首页</string>
+   </property>
+   <property name="icon">
+    <iconset resource="../image.qrc">
+     <normaloff>:/Image/headPage.png</normaloff>:/Image/headPage.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>23</width>
+     <height>23</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextBesideIcon</enum>
+   </property>
+  </widget>
+  <widget class="QScrollArea" name="scrollArea">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>220</y>
+     <width>990</width>
+     <height>410</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QScrollArea#scrollArea{
+border:1px none;
+background-color: rgb(15, 41, 68);
+}
+QToolButton{
+font: 12pt &quot;文泉驿等宽微米黑&quot;;
+border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);
+}
+/*
+QToolButton:hover{
+font: 11pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(0, 185, 185);
+background-color: rgb(3, 127, 119);
+}
+*/</string>
+   </property>
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>990</width>
+      <height>410</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget#scrollAreaWidgetContents{
+background-color: rgb(15, 41, 68);
+}
+QToolButton{
+border:1px solid;
+background-color: rgb(28, 238, 75);
+background-color: rgb(0, 255, 0);
+border-radius:10px;
+border-color: rgb(53, 156, 212);
+color: rgb(0, 0, 0);
+}</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="lbUnitVC_1">
+   <property name="geometry">
+    <rect>
+     <x>205</x>
+     <y>85</y>
+     <width>20</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans [monotype]</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>V</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbUnitVB_1">
+   <property name="geometry">
+    <rect>
+     <x>205</x>
+     <y>45</y>
+     <width>20</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans [monotype]</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>V</string>
+   </property>
+  </widget>
+  <widget class="QLCDNumber" name="lcdNb_AV1">
+   <property name="geometry">
+    <rect>
+     <x>135</x>
+     <y>5</y>
+     <width>65</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="smallDecimalPoint">
+    <bool>false</bool>
+   </property>
+   <property name="digitCount">
+    <number>5</number>
+   </property>
+   <property name="segmentStyle">
+    <enum>QLCDNumber::Flat</enum>
+   </property>
+  </widget>
+  <widget class="QLCDNumber" name="lcdNb_BV1">
+   <property name="geometry">
+    <rect>
+     <x>135</x>
+     <y>45</y>
+     <width>65</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="smallDecimalPoint">
+    <bool>false</bool>
+   </property>
+   <property name="digitCount">
+    <number>5</number>
+   </property>
+   <property name="segmentStyle">
+    <enum>QLCDNumber::Flat</enum>
+   </property>
+   <property name="intValue" stdset="0">
+    <number>0</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbVC_1">
+   <property name="geometry">
+    <rect>
+     <x>5</x>
+     <y>85</y>
+     <width>130</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 16pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string>一路C相电压:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbVA_1">
+   <property name="geometry">
+    <rect>
+     <x>5</x>
+     <y>5</y>
+     <width>130</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 16pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 0);</string>
+   </property>
+   <property name="text">
+    <string>一路A相电压:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbUnitVA_1">
+   <property name="geometry">
+    <rect>
+     <x>205</x>
+     <y>5</y>
+     <width>20</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans [monotype]</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>V</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbVB_1">
+   <property name="geometry">
+    <rect>
+     <x>5</x>
+     <y>45</y>
+     <width>130</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 16pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(0, 255, 0);</string>
+   </property>
+   <property name="text">
+    <string>一路B相电压:</string>
+   </property>
+  </widget>
+  <widget class="QLCDNumber" name="lcdNb_CV1">
+   <property name="geometry">
+    <rect>
+     <x>135</x>
+     <y>85</y>
+     <width>65</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="smallDecimalPoint">
+    <bool>false</bool>
+   </property>
+   <property name="digitCount">
+    <number>5</number>
+   </property>
+   <property name="segmentStyle">
+    <enum>QLCDNumber::Flat</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbUnitIC_1">
+   <property name="geometry">
+    <rect>
+     <x>495</x>
+     <y>85</y>
+     <width>30</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>A</string>
+   </property>
+  </widget>
+  <widget class="QLCDNumber" name="lcdNb_BI1">
+   <property name="geometry">
+    <rect>
+     <x>415</x>
+     <y>45</y>
+     <width>75</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="smallDecimalPoint">
+    <bool>true</bool>
+   </property>
+   <property name="digitCount">
+    <number>5</number>
+   </property>
+   <property name="segmentStyle">
+    <enum>QLCDNumber::Flat</enum>
+   </property>
+   <property name="intValue" stdset="0">
+    <number>0</number>
+   </property>
+  </widget>
+  <widget class="QLCDNumber" name="lcdNb_CI1">
+   <property name="geometry">
+    <rect>
+     <x>415</x>
+     <y>85</y>
+     <width>75</width>
+     <height>36</height>
+    </rect>
+   </property>
+   <property name="smallDecimalPoint">
+    <bool>true</bool>
+   </property>
+   <property name="digitCount">
+    <number>5</number>
+   </property>
+   <property name="segmentStyle">
+    <enum>QLCDNumber::Flat</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbIA_1">
+   <property name="geometry">
+    <rect>
+     <x>285</x>
+     <y>5</y>
+     <width>130</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 16pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 0);</string>
+   </property>
+   <property name="text">
+    <string>一路A相电流:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbUnitIA_1">
+   <property name="geometry">
+    <rect>
+     <x>495</x>
+     <y>5</y>
+     <width>30</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans [monotype]</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>A</string>
+   </property>
+  </widget>
+  <widget class="QLCDNumber" name="lcdNb_AI1">
+   <property name="geometry">
+    <rect>
+     <x>415</x>
+     <y>5</y>
+     <width>75</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="smallDecimalPoint">
+    <bool>true</bool>
+   </property>
+   <property name="digitCount">
+    <number>5</number>
+   </property>
+   <property name="segmentStyle">
+    <enum>QLCDNumber::Flat</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbIB_1">
+   <property name="geometry">
+    <rect>
+     <x>285</x>
+     <y>45</y>
+     <width>130</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 16pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(0, 255, 0);</string>
+   </property>
+   <property name="text">
+    <string>一路B相电流:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbIC_1">
+   <property name="geometry">
+    <rect>
+     <x>285</x>
+     <y>85</y>
+     <width>130</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 16pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string>一路C相电流:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbUnitIB_1">
+   <property name="geometry">
+    <rect>
+     <x>495</x>
+     <y>45</y>
+     <width>30</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>A</string>
+   </property>
+  </widget>
+  <widget class="QLCDNumber" name="lcdNb_CV2">
+   <property name="geometry">
+    <rect>
+     <x>695</x>
+     <y>85</y>
+     <width>65</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="smallDecimalPoint">
+    <bool>false</bool>
+   </property>
+   <property name="digitCount">
+    <number>5</number>
+   </property>
+   <property name="segmentStyle">
+    <enum>QLCDNumber::Flat</enum>
+   </property>
+   <property name="intValue" stdset="0">
+    <number>0</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbVC_2">
+   <property name="geometry">
+    <rect>
+     <x>565</x>
+     <y>85</y>
+     <width>130</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 16pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string>二路C相电压:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbUnitVA_2">
+   <property name="geometry">
+    <rect>
+     <x>765</x>
+     <y>5</y>
+     <width>30</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans [monotype]</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>V</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbVA_2">
+   <property name="geometry">
+    <rect>
+     <x>565</x>
+     <y>5</y>
+     <width>130</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 16pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 0);</string>
+   </property>
+   <property name="text">
+    <string>二路A相电压:</string>
+   </property>
+  </widget>
+  <widget class="QLCDNumber" name="lcdNb_BV2">
+   <property name="geometry">
+    <rect>
+     <x>695</x>
+     <y>45</y>
+     <width>65</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="smallDecimalPoint">
+    <bool>false</bool>
+   </property>
+   <property name="digitCount">
+    <number>5</number>
+   </property>
+   <property name="segmentStyle">
+    <enum>QLCDNumber::Flat</enum>
+   </property>
+   <property name="intValue" stdset="0">
+    <number>0</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_28">
+   <property name="geometry">
+    <rect>
+     <x>810</x>
+     <y>5</y>
+     <width>26</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans [monotype]</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>安
+装
+区
+域</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbArea">
+   <property name="geometry">
+    <rect>
+     <x>840</x>
+     <y>5</y>
+     <width>176</width>
+     <height>115</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::AutoText</enum>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbVB_2">
+   <property name="geometry">
+    <rect>
+     <x>565</x>
+     <y>45</y>
+     <width>130</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 16pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(0, 255, 0);</string>
+   </property>
+   <property name="text">
+    <string>二路B相电压:</string>
+   </property>
+  </widget>
+  <widget class="QLCDNumber" name="lcdNb_AV2">
+   <property name="geometry">
+    <rect>
+     <x>695</x>
+     <y>5</y>
+     <width>65</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="smallDecimalPoint">
+    <bool>false</bool>
+   </property>
+   <property name="digitCount">
+    <number>5</number>
+   </property>
+   <property name="segmentStyle">
+    <enum>QLCDNumber::Flat</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbUnitVB_2">
+   <property name="geometry">
+    <rect>
+     <x>765</x>
+     <y>45</y>
+     <width>30</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>V</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbUnitVC_2">
+   <property name="geometry">
+    <rect>
+     <x>765</x>
+     <y>85</y>
+     <width>30</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>V</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lb_node_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>195</y>
+     <width>131</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>15</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 15pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>当前节点地址:</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lb_node_3">
+   <property name="geometry">
+    <rect>
+     <x>305</x>
+     <y>195</y>
+     <width>130</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>15</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 15pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>当前节点状态:</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbNodeCanId">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>195</y>
+     <width>66</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>15</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 15pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbNodeState">
+   <property name="geometry">
+    <rect>
+     <x>445</x>
+     <y>195</y>
+     <width>90</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>15</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 15pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lb_node_6">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>195</y>
+     <width>130</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>15</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 15pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>当前节点类型:</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbNodeType">
+   <property name="geometry">
+    <rect>
+     <x>775</x>
+     <y>195</y>
+     <width>246</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>15</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 15pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_21">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>185</y>
+     <width>1024</width>
+     <height>2</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 16pt &quot;文泉驿等宽微米黑&quot;;
+background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(28, 183, 200, 255), stop:1 rgba(0, 85, 127, 255));</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_22">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>130</y>
+     <width>1024</width>
+     <height>2</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 16pt &quot;文泉驿等宽微米黑&quot;;
+background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(28, 183, 200, 255), stop:1 rgba(0, 85, 127, 255));</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>10</y>
+     <width>2</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(79, 229, 219);
+</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lb_Time_3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>145</y>
+     <width>100</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>15</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::TabFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 15pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>节点总数:</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="Line" name="line_2">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>10</y>
+     <width>2</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(79, 229, 219);
+</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbNodeCount">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>145</y>
+     <width>66</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>文泉驿等宽微米黑</family>
+     <pointsize>15</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 15pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <zorder>nodeFrame</zorder>
+  <zorder>lbCurCanId</zorder>
+  <zorder>tBtnTailPage</zorder>
+  <zorder>tBtnNestPage</zorder>
+  <zorder>tBtnLastPage</zorder>
+  <zorder>tBtnPowerInfo</zorder>
+  <zorder>lb_Time_2</zorder>
+  <zorder>tBtnErrorInfo</zorder>
+  <zorder>tBtnHeadPage</zorder>
+  <zorder>scrollArea</zorder>
+  <zorder>lbUnitVC_1</zorder>
+  <zorder>lbUnitVB_1</zorder>
+  <zorder>lcdNb_AV1</zorder>
+  <zorder>lcdNb_BV1</zorder>
+  <zorder>lbVC_1</zorder>
+  <zorder>lbVA_1</zorder>
+  <zorder>lbUnitVA_1</zorder>
+  <zorder>lbVB_1</zorder>
+  <zorder>lcdNb_CV1</zorder>
+  <zorder>lbUnitIC_1</zorder>
+  <zorder>lcdNb_BI1</zorder>
+  <zorder>lcdNb_CI1</zorder>
+  <zorder>lbIA_1</zorder>
+  <zorder>lbUnitIA_1</zorder>
+  <zorder>lcdNb_AI1</zorder>
+  <zorder>lbIB_1</zorder>
+  <zorder>lbIC_1</zorder>
+  <zorder>lbUnitIB_1</zorder>
+  <zorder>lcdNb_CV2</zorder>
+  <zorder>lbVC_2</zorder>
+  <zorder>lbUnitVA_2</zorder>
+  <zorder>lbVA_2</zorder>
+  <zorder>lcdNb_BV2</zorder>
+  <zorder>label_28</zorder>
+  <zorder>lbArea</zorder>
+  <zorder>lbVB_2</zorder>
+  <zorder>lcdNb_AV2</zorder>
+  <zorder>lbUnitVB_2</zorder>
+  <zorder>lbUnitVC_2</zorder>
+  <zorder>lb_node_2</zorder>
+  <zorder>lb_node_3</zorder>
+  <zorder>lbNodeCanId</zorder>
+  <zorder>lbNodeState</zorder>
+  <zorder>lb_node_6</zorder>
+  <zorder>lbNodeType</zorder>
+  <zorder>label_21</zorder>
+  <zorder>label_22</zorder>
+  <zorder>line</zorder>
+  <zorder>lb_Time_3</zorder>
+  <zorder>line_2</zorder>
+  <zorder>lbNodeCount</zorder>
+ </widget>
+ <resources>
+  <include location="../image.qrc"/>
+ </resources>
+ <connections/>
+</ui>
