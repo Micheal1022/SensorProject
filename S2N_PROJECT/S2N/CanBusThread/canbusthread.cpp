@@ -252,7 +252,8 @@ void CanBusThread::canDataParse(int nodeIndex, CAN_OBJ CanFrameInfo)
 }
 
 
-//#define REOPEN
+#define MOD_ALARM   0x01//报警
+#define MOD_OFFLINE 0x03//掉线
 
 void CanBusThread::canWorkUnit(int nodeIndex, int nodeID, int nodeType)
 {
@@ -269,29 +270,25 @@ void CanBusThread::canWorkUnit(int nodeIndex, int nodeID, int nodeType)
         int recvNum = Receive(m_DeviceType,0,m_CANIndex,&receiveFrameInfo,1,0);
         if (1 == recvNum) {
             if (transmitFrameInfo.ID == receiveFrameInfo.ID) {
-#ifdef REOPEN
-                m_offLineTimes = 0;
-                m_offLineFlag  = false;
-#endif
                 canDataParse(nodeIndex,receiveFrameInfo);//正常数据
                 break;
 
+            } else {
+                if (receiveFrameInfo.Data[1] == MOD_ALARM) {
+                    int pNodeIndex = findNodeIndex(receiveFrameInfo.ID);
+                    if (pNodeIndex != -1) {
+                        canDataParse(pNodeIndex,receiveFrameInfo);//报警主动上传
+                    }
+                }
             }
+
         } else {
             if (TIMES == times) {
                 receiveFrameInfo.ID = nodeID;
                 receiveFrameInfo.Data[1] = nodeType;
-                receiveFrameInfo.Data[2] = 3;
+                receiveFrameInfo.Data[2] = MOD_OFFLINE;
                 receiveFrameInfo.DataLen = 8;
                 canDataParse(nodeIndex,receiveFrameInfo);//通讯故障
-#ifdef REOPEN
-                m_offLineTimes++;
-                if (m_offLineTimes == m_nodeCount) {
-                    m_offLineTimes = 0;
-                    m_offLineFlag  = true;
-                    emit sigOffLineTimes(m_CANIndex,m_offLineFlag);
-                }
-#endif
             }
         }
     }
