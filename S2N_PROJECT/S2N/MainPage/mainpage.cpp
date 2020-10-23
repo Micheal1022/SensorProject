@@ -254,6 +254,9 @@ void MainPage::confNodeInfo()
         } else if (CANNET == m_canType) {
             m_canNetUDP_1 = new CanNetUDP(QHostAddress(pThost),QHostAddress(pLhost));
             m_canNetUDP_1->confCanNetUDP(pTport_1,pLport_1,PASS_1,pTimes_1);
+            QThread *thread = new QThread;
+            m_canNetUDP_1->moveToThread(thread);
+            thread->start();
             connect(m_canNetUDP_1,SIGNAL(sigThreadPaused(int)),this,SLOT(slotThreadPaused(int)));
             connect(m_canNetUDP_1,SIGNAL(sigOffLineTimes(int,bool)),this,SLOT(slotOffLine(int,bool)));
             connect(m_canNetUDP_1,SIGNAL(sigSendCanData(QList<int>)),m_RS485,SLOT(slotNodeState(QList<int>)));
@@ -280,8 +283,12 @@ void MainPage::confNodeInfo()
             connect(m_canBusThread_2,SIGNAL(sigSendCanData(QList<int>)),this,SLOT(slotSendUdpData(QList<int>)));
             m_canBusThread_2->start();
         } else if (CANNET == m_canType) {
+
             m_canNetUDP_2 = new CanNetUDP(QHostAddress(pThost),QHostAddress(pLhost));
             m_canNetUDP_2->confCanNetUDP(pTport_2,pLport_2,PASS_2,pTimes_2);
+            QThread *thread = new QThread;
+            m_canNetUDP_2->moveToThread(thread);
+            thread->start();
             connect(m_canNetUDP_2,SIGNAL(sigThreadPaused(int)),this,SLOT(slotThreadPaused(int)));
             connect(m_canNetUDP_2,SIGNAL(sigOffLineTimes(int,bool)),this,SLOT(slotOffLine(int,bool)));
             connect(m_canNetUDP_2,SIGNAL(sigSendCanData(QList<int>)),m_RS485,SLOT(slotNodeState(QList<int>)));

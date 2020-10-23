@@ -23,7 +23,7 @@ private:
     DWORD m_canPass;
     int m_pass;
     int m_dropTimes;
-
+    int m_CANInd;
     int m_currentPass;
     int m_currentNode;
     int m_passNodeCount;

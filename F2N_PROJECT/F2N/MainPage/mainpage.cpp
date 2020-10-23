@@ -70,6 +70,7 @@ void MainPage::confNodeInfo()
     qDebug()<<"pLport_2 =====>"<<pLport_2;
     qDebug()<<"pTimes_1 =====>"<<pTimes_1;
     qDebug()<<"pTimes_2 =====>"<<pTimes_2;
+    qDebug()<<"pCantype =====>"<<pCantype;
 
     if (CANUSB == pCantype) {
         CanBusThread::openCanBusDev();
@@ -103,6 +104,9 @@ void MainPage::confNodeInfo()
         } else if (CANNET == pCantype) {
             CanNetUDP *pCanNetUDP = new CanNetUDP(QHostAddress(pThost),QHostAddress(pLhost));
             pCanNetUDP->confCanNetUDP(pTport_1,pLport_1,nodeList_1,PASS_1,pTimes_1);
+            QThread *thread = new QThread;
+            pCanNetUDP->moveToThread(thread);
+            thread->start();
             connect(pCanNetUDP, SIGNAL(sigSendCanData(int,int,int,int,int,QList<int>,QList<qreal>)), this, SLOT(slotRecvCanData(int,int,int,int,int,QList<int>,QList<qreal>)));
             connect(pCanNetUDP, SIGNAL(sigSendRS485Data(QList<int>)),m_RS485,SLOT(slotNodeState(QList<int>)));
         }
@@ -134,6 +138,9 @@ void MainPage::confNodeInfo()
         } else if (CANNET == pCantype) {
             CanNetUDP *pCanNetUDP = new CanNetUDP(QHostAddress(pThost),QHostAddress(pLhost));
             pCanNetUDP->confCanNetUDP(pTport_2,pLport_2,nodeList_2,PASS_2,pTimes_2);
+            QThread *thread = new QThread;
+            pCanNetUDP->moveToThread(thread);
+            thread->start();
             connect(pCanNetUDP, SIGNAL(sigSendCanData(int,int,int,int,int,QList<int>,QList<qreal>)), this, SLOT(slotRecvCanData(int,int,int,int,int,QList<int>,QList<qreal>)));
             connect(pCanNetUDP, SIGNAL(sigSendRS485Data(QList<int>)),m_RS485,SLOT(slotNodeState(QList<int>)));
         }
@@ -214,10 +221,10 @@ void MainPage::slotConfNodeInfo()
 
 void MainPage::slotRecvCanData(int index, int pass, int canId, int type, int state, QList<int> voltageList, QList<qreal> currentList)
 {
-    if(pass == 1) {
+    if(pass == PASS_1) {
         m_nodeInfo_1->slotRecvCanData(index,pass,canId,type,state,voltageList,currentList);
         emit sigSendCanData(index,pass,canId,type,state,voltageList,currentList,m_nodeArea_1.value(index));//send to UDP
-    } else {
+    } else if (pass == PASS_2) {
         m_nodeInfo_2->slotRecvCanData(index,pass,canId,type,state,voltageList,currentList);
         emit sigSendCanData(m_node_1_Count+index,pass,canId,type,state,voltageList,currentList,m_nodeArea_2.value(index));//send to UDP
     }

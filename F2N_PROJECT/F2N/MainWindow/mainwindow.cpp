@@ -51,19 +51,17 @@ MainWindow::MainWindow(QWidget *parent) :
                 m_udpServer,SLOT(slotSendCanData(int,int,int,int,int,QList<int>,QList<qreal>,QString)));
     }
 
-
-
     initConnect();
 
-
-
-#ifdef BEVONE
-    ui->lbLogo->setStyleSheet("border-image: url(:/Image/Bevone.png);");
-    ui->lbCompany->setText(tr("北京北元安达电子有限公司"));
-#else
-    ui->lbLogo->setStyleSheet("border-image: url(:/Image/Sensor.png);");
-    ui->lbCompany->setText(tr("西安盛赛尔电子有限公司"));
-#endif
+    QSettings settings("./Conf.ini", QSettings::IniFormat);
+    int company = settings.value("COMPANY/Company").toInt();
+    if (1 == company) {
+        ui->lbLogo->setStyleSheet("border-image: url(:/Image/Sensor.png);");
+        ui->lbCompany->setText(tr("西安盛赛尔电子有限公司"));
+    } else if (2 == company) {
+        ui->lbLogo->setStyleSheet("border-image: url(:/Image/Bevone.png);");
+        ui->lbCompany->setText(tr("北京北元安达电子有限公司"));
+    }
 
 
 }
@@ -377,39 +375,32 @@ void MainWindow::slotIOTimeOut()
 {
     m_errorCount = m_errorNum_1 + m_errorNum_2;
     //控制声音
-    if(m_errorCount != m_oldErrorCount)
+    if (m_errorCount != m_oldErrorCount)
     {
-        if(m_errorCount > m_oldErrorCount)
-        {
+        if (m_errorCount > m_oldErrorCount) {
             m_muteState = false;
         }
         m_oldErrorCount = m_errorCount;
     }
 
-    if(m_muteState == false)
-    {
-        if(m_oldErrorCount > 0 || m_mainPowerState == false || m_backPowerState == false)
-        {
+    if (m_muteState == false) {
+        if (m_oldErrorCount > 0 || m_mainPowerState == false || m_backPowerState == false) {
             emit sigControlSound(ErrorSound);
-        }
-        else
-        {
+        } else {
             emit sigControlSound(NormalSound);
         }
-    }
-    else
-    {
+    } else {
         emit sigControlSound(NormalSound);
     }
 
-    //    qDebug("*************************");
-    //    qDebug()<<"m_errorNum_1    : "<<m_errorNum_1;
-    //    qDebug()<<"m_errorNum_2    : "<<m_errorNum_2;
-    //    qDebug()<<"m_errorCount    : "<<m_errorCount;
-    //    qDebug()<<"m_oldErrorCount : "<<m_oldErrorCount;
-    //    qDebug()<<"m_muteState     : "<<m_muteState;
-    //    qDebug()<<"m_mainPowerState: "<<m_mainPowerState;
-    //    qDebug()<<"m_backPowerState: "<<m_backPowerState;
+    //qDebug("*************************");
+    //qDebug()<<"m_errorNum_1    : "<<m_errorNum_1;
+    //qDebug()<<"m_errorNum_2    : "<<m_errorNum_2;
+    //qDebug()<<"m_errorCount    : "<<m_errorCount;
+    //qDebug()<<"m_oldErrorCount : "<<m_oldErrorCount;
+    //qDebug()<<"m_muteState     : "<<m_muteState;
+    //qDebug()<<"m_mainPowerState: "<<m_mainPowerState;
+    //qDebug()<<"m_backPowerState: "<<m_backPowerState;
 
     //控制指示灯
     switch (m_step) {
@@ -435,7 +426,6 @@ void MainWindow::slotIOTimeOut()
         controlMuteLight();
         break;
     }
-
 }
 
 void MainWindow::slotPowerState(int mainPower, int backPower)

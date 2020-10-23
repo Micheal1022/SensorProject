@@ -121,7 +121,10 @@ void CanNetUDP::workUnit(int currentNode, int canID, int nodeType)
     } else{
         if (m_nodeTimesList.at(currentNode) > m_testTimes) {
             m_nodeTimesList[currentNode] = 0;
-            QByteArray recvData;recvData.resize(DATASIZE);
+            QByteArray recvData;
+            for (int i = 0; i < recvData.count(); i++) {
+                recvData.append((char)0);
+            }
             recvData[CAN_TYPE] = nodeType;
             recvData[CAN_STATE]= 3;
             //recvData = recvData.right(DATAAREA);//CAN数据

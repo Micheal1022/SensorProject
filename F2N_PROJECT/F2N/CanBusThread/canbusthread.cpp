@@ -19,12 +19,13 @@ CanBusThread::CanBusThread(int pass, QList<int> nodeListPass)
     m_dropTimes = 0;
     m_currentNode = 0;
     m_currentPass = pass;
+    m_CANInd = pass-1;
 
     if (m_passNodeCount > 0) {
-        if(initCanBusDev(pass))
-            qDebug()<<QString("PASS_%1").arg(pass)<<" InitCanBusDev OK!";
+        if(initCanBusDev(m_CANInd))
+            qDebug()<<QString("PASS_%1").arg(m_CANInd)<<" InitCanBusDev OK!";
         else
-            qDebug()<<QString("PASS_%1").arg(pass)<<" InitCanBusDev ERROR!";
+            qDebug()<<QString("PASS_%1").arg(m_CANInd)<<" InitCanBusDev ERROR!";
         qDebug()<<"************************";
     }
 }
@@ -67,6 +68,7 @@ bool CanBusThread::initCanBusDev(DWORD CANIndex)
     init_config.Timing0 = 0x31;
     init_config.Timing1 = 0x1c;
     init_config.Mode    = 0;
+
 
     if (InitCAN(m_devType,0,CANIndex,&init_config) == STATUS_OK) {
         qDebug()<<QString("PASS_%1").arg(CANIndex)<<" InitCAN OK!";
@@ -126,7 +128,7 @@ void CanBusThread::canDataParse(int currentNode,int devType,int CANInd,CAN_OBJ d
         nodeCV_2 = 0;
         voltageList<<nodeAV_1<<nodeBV_1<<nodeCV_1<<nodeAV_2<<nodeBV_2<<nodeCV_2;
         currentList<<0.0<<0.0<<0.0;
-        emit sigSendCanData(currentNode,m_currentPass+1,data.ID,nodeType,nodeState,voltageList,currentList);
+        emit sigSendCanData(currentNode,m_currentPass,data.ID,nodeType,nodeState,voltageList,currentList);
 
         break;
     case GlobalData::MODE_DVA:
@@ -138,7 +140,7 @@ void CanBusThread::canDataParse(int currentNode,int devType,int CANInd,CAN_OBJ d
         nodeCV_2 = 0;
         voltageList<<nodeAV_1<<nodeBV_1<<nodeCV_1<<nodeAV_2<<nodeBV_2<<nodeCV_2;
         currentList<<data.Data[3]<<0.0<<0.0;
-        emit sigSendCanData(currentNode,m_currentPass+1,data.ID,nodeType,nodeState,voltageList,currentList);
+        emit sigSendCanData(currentNode,m_currentPass,data.ID,nodeType,nodeState,voltageList,currentList);
         break;
     case GlobalData::MODE_V:
     case GlobalData::MODE_V3:
@@ -151,7 +153,7 @@ void CanBusThread::canDataParse(int currentNode,int devType,int CANInd,CAN_OBJ d
         nodeCV_2 = data.Data[7]*2;
         voltageList<<nodeAV_1<<nodeBV_1<<nodeCV_1<<nodeAV_2<<nodeBV_2<<nodeCV_2;
         currentList<<0.0<<0.0<<0.0;
-        emit sigSendCanData(currentNode,m_currentPass+1,data.ID,nodeType,nodeState,voltageList,currentList);
+        emit sigSendCanData(currentNode,m_currentPass,data.ID,nodeType,nodeState,voltageList,currentList);
 
         break;
 
@@ -167,7 +169,7 @@ void CanBusThread::canDataParse(int currentNode,int devType,int CANInd,CAN_OBJ d
         nodeCI_1 = (data.Data[7] >> 4) + ((qreal)(data.Data[7] & 0xF))/10;
         voltageList<<nodeAV_1<<nodeBV_1<<nodeCV_1<<0<<0<<0;
         currentList<<nodeAI_1<<nodeBI_1<<nodeCI_1;
-        emit sigSendCanData(currentNode,m_currentPass+1,data.ID,nodeType,nodeState,voltageList,currentList);
+        emit sigSendCanData(currentNode,m_currentPass,data.ID,nodeType,nodeState,voltageList,currentList);
 
         break;
     case GlobalData::MODE_VA:
@@ -182,7 +184,7 @@ void CanBusThread::canDataParse(int currentNode,int devType,int CANInd,CAN_OBJ d
         voltageList<<nodeAV_1<<nodeBV_1<<nodeCV_1<<0<<0<<0;
         currentList<<nodeAI_1<<nodeBI_1<<nodeCI_1;
 
-        emit sigSendCanData(currentNode,m_currentPass+1,data.ID,nodeType,nodeState,voltageList,currentList);
+        emit sigSendCanData(currentNode,m_currentPass,data.ID,nodeType,nodeState,voltageList,currentList);
         break;
 
     case GlobalData::MODE_2VAN3:
@@ -202,7 +204,7 @@ void CanBusThread::canDataParse(int currentNode,int devType,int CANInd,CAN_OBJ d
         }
         voltageList<<nodeAV_1<<nodeBV_1<<nodeCV_1<<nodeAV_2<<nodeBV_2<<nodeCV_2;
         currentList<<nodeAI_1<<nodeBI_1<<nodeCI_1;
-        emit sigSendCanData(currentNode,m_currentPass+1,data.ID,nodeType,nodeState,voltageList,currentList);
+        emit sigSendCanData(currentNode,m_currentPass,data.ID,nodeType,nodeState,voltageList,currentList);
         break;
     }
 
@@ -244,16 +246,10 @@ void CanBusThread::run()
     }
     int currentNode = 0;
     while (!isInterruptionRequested()) {
-//        ERR_INFO err_info;
-//        ReadErrInfo(m_devType,0,m_currentPass, &err_info);
-//        qDebug()<<"                                   ****************************";
-//        qDebug()<<"                                   PassNum : "<<m_currentPass+1;
-//        qDebug()<<"                                   ErrCode : "<<err_info.ErrCode;
-//        qDebug()<<"                                   RecvNum : "<<err_info.Passive_ErrData[1];
-//        qDebug()<<"                                   SendNum : "<<err_info.Passive_ErrData[2];
         if (m_passNodeCount > 0) {
+
             if (currentNode < m_passNodeCount) {
-                workUnit(m_devType,m_currentPass,currentNode,m_nodeListPass);
+                workUnit(m_devType,m_CANInd,currentNode,m_nodeListPass);
                 currentNode++;
             } else {
                 currentNode = 0;
@@ -273,10 +269,10 @@ int CanBusThread::CANStart()
 {
     sleep(2);
     if (StartCAN(m_devType,0,m_currentPass) == STATUS_OK) {
-        qDebug()<<QString("                                                            PASS_%1").arg(m_currentPass)<<" StartCAN OK!";
+        qDebug()<<QString("PASS_%1").arg(m_currentPass)<<" StartCAN OK!";
         return STATUS_OK;
     } else {
-        qDebug()<<QString("                                                            PASS_%1").arg(m_currentPass)<<" StartCAN ERROR!";
+        qDebug()<<QString("PASS_%1").arg(m_currentPass)<<" StartCAN ERROR!";
     }
     return STATUS_ERR;
 }
@@ -285,10 +281,10 @@ int CanBusThread::CANReset()
 {
     sleep(2);
     if (ResetCAN(m_devType,0,m_currentPass) == STATUS_OK) {
-        qDebug()<<QString("                                                            PASS_%1").arg(m_currentPass)<<" ResetCAN OK!";
+        qDebug()<<QString("PASS_%1").arg(m_currentPass)<<" ResetCAN OK!";
         return STATUS_OK;
     } else {
-        qDebug()<<QString("                                                            PASS_%1").arg(m_currentPass)<<" ResetCAN ERROR!";
+        qDebug()<<QString("PASS_%1").arg(m_currentPass)<<" ResetCAN ERROR!";
     }
     return STATUS_ERR;
 }

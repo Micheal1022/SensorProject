@@ -13,7 +13,7 @@ class CanBusThread : public QThread
 public:
     CanBusThread();
     ~CanBusThread();
-    CanBusThread(DWORD DeviceType,DWORD CANInd);
+    CanBusThread(DWORD DeviceType,int currentPass);
     DWORD m_DeviceType;
     DWORD m_CANIndex;
     bool initCanBusDev(DWORD DeviceType, DWORD CANIndex);
@@ -26,6 +26,7 @@ signals:
     void sigSendCanData(QList<int> dataList);
 private:
     DWORD m_canPass;
+    int m_currentPass;
     bool m_reset;
     int m_nodeIndex;
     int m_nodeCount;

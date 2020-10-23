@@ -26,16 +26,16 @@ CanBusThread::CanBusThread()
 
 }
 
-CanBusThread::CanBusThread(DWORD DeviceType,DWORD CANInd)
+CanBusThread::CanBusThread(DWORD DeviceType, int currentPass)
 {
     QSqlDatabase db = SQLite::openConnection();
-    m_nodeList = SQLite::getNodeList(db,CANInd);
+    m_nodeList = SQLite::getNodeList(db,currentPass);
     SQLite::closeConnection(db);
     m_nodeCount = m_nodeList.count();
     m_reset = false;
-    m_CANIndex = CANInd-1;
-    m_canPass = CANInd;
-    m_DeviceType = DeviceType;
+    m_CANIndex    = currentPass-1;
+    m_currentPass = currentPass;
+    m_DeviceType  = DeviceType;
     initCanBusDev(m_DeviceType,m_CANIndex);
 }
 
@@ -61,7 +61,7 @@ void CanBusThread::run()
                 ResetCAN(m_DeviceType,0,m_CANIndex);
                 msleep(2000);
                 StartCAN(m_DeviceType,0,m_CANIndex);
-                emit sigThreadPaused(m_CANIndex+1);
+                emit sigThreadPaused(m_currentPass);
                 msleep(3000);
             } else {
                 int nodeID  = m_nodeList.value(m_nodeIndex).first;
@@ -154,10 +154,10 @@ int CanBusThread::CANStart()
 {
     msleep(2000);
     if (StartCAN(m_DeviceType,0,m_CANIndex) == STATUS_OK) {
-        //qDebug()<<QString("PASS_%1").arg(m_CANIndex)<<" StartCAN OK!";
+        qDebug()<<QString("PASS_%1").arg(m_CANIndex)<<" StartCAN OK!";
         return STATUS_OK;
     } else {
-        //qDebug()<<QString("PASS_%1").arg(m_CANIndex)<<" StartCAN ERROR!";
+        qDebug()<<QString("PASS_%1").arg(m_CANIndex)<<" StartCAN ERROR!";
     }
     return STATUS_ERR;
 }
@@ -166,10 +166,10 @@ int CanBusThread::CANReset()
 {
     msleep(2000);
     if (ResetCAN(m_DeviceType,0,m_CANIndex) == STATUS_OK) {
-        //qDebug()<<QString("PASS_%1").arg(m_CANIndex)<<" ResetCAN OK!";
+        qDebug()<<QString("PASS_%1").arg(m_CANIndex)<<" ResetCAN OK!";
         return STATUS_OK;
     } else {
-        //qDebug()<<QString("PASS_%1").arg(m_CANIndex)<<" ResetCAN ERROR!";
+        qDebug()<<QString("PASS_%1").arg(m_CANIndex)<<" ResetCAN ERROR!";
     }
     return STATUS_ERR;
 }
@@ -229,23 +229,23 @@ void CanBusThread::canDataParse(int nodeIndex, CAN_OBJ CanFrameInfo)
         int baseLeak =  CanFrameInfo.Data[CAN_AH_BL] & 0xF;//取出低4位数
         baseLeak <<= 8;
         baseLeak |= CanFrameInfo.Data[CAN_BD_L];//低位数
-        leakList<<nodeIndex<<m_canPass<<ID<<type<<state<<curLeak<<alarmLeak<<baseLeak;
+        leakList<<nodeIndex<<m_currentPass<<ID<<type<<state<<curLeak<<alarmLeak<<baseLeak;
         emit sigSendCanData(leakList);
     }
         break;
     case MOD_TEMP: {
         int curTemp   = CanFrameInfo.Data[CAN_RD_L];
         int alarmTemp = CanFrameInfo.Data[CAN_AD_L];
-        tempList<<nodeIndex<<m_canPass<<ID<<type<<state<<curTemp<<alarmTemp<<0;
+        tempList<<nodeIndex<<m_currentPass<<ID<<type<<state<<curTemp<<alarmTemp<<0;
         emit sigSendCanData(tempList);
     }
         break;
     case MOD_EARC:
-        earcList<<nodeIndex<<m_canPass<<ID<<type<<state<<0<<0<<0;
+        earcList<<nodeIndex<<m_currentPass<<ID<<type<<state<<0<<0<<0;
         emit sigSendCanData(earcList);
         break;
     case MOD_UREG:
-        uregList<<nodeIndex<<m_canPass<<ID<<type<<state<<0<<0<<0;
+        uregList<<nodeIndex<<m_currentPass<<ID<<type<<state<<0<<0<<0;
         emit sigSendCanData(uregList);
         break;
     }

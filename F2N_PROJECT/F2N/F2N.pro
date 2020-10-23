@@ -8,11 +8,7 @@ QT       += core gui sql network serialport multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-
-DEFINES += BEVONE
-DESTDIR = ./Bevone
-#DESTDIR = ./Sensor
-
+DESTDIR = ./SSApp
 TARGET = SSApp
 TEMPLATE = app
 

@@ -16,9 +16,10 @@ CanNetUDP::~CanNetUDP()
 
 CanNetUDP::CanNetUDP(const QHostAddress targetIP, const QHostAddress hostIP)
 {
-    m_udpSocket  = new QUdpSocket;
-    m_targetIP   = targetIP; //目标地址
-    m_hostIP     = hostIP;
+    m_dataTimer = new QTimer;
+    m_udpSocket = new QUdpSocket;
+    m_targetIP  = targetIP; //目标地址
+    m_hostIP    = hostIP;
 
 }
 
@@ -39,9 +40,8 @@ void CanNetUDP::confCanNetUDP(quint16 targetPort, quint16 hostPort, QList<int> n
         m_nodeTimesList.append(0);
     }
 
-    m_dataTimer = new QTimer;
     connect(m_dataTimer,SIGNAL(timeout()),this,SLOT(slotTimeOut()));
-    m_dataTimer->start(200);
+    m_dataTimer->start(250);
 }
 
 QByteArray CanNetUDP::confCanInquiryData(uint canID, uint size)
